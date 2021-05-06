@@ -59,11 +59,11 @@ VALUES
 ('2023-02-25',    8      ,        2       ,       2      , 14),
 ('2021-03-26',    2      ,        1       ,       3      , 16),
 ('2014-05-31',    1      ,        2.5     ,       4      , 14),
-('2015-06-02',    2      ,        1       ,       5      , 12),
+('2015-06-02',   10      ,        1       ,       5      , 12),
 ('2021-09-03',    7      ,        2       ,       6      , 10),
 ('2016-05-14',    8      ,        0.5     ,       7      , 1),
 ('2018-07-15',    8      ,        1       ,       8      , 1),
-('2002-05-12',    9      ,        2       ,       9      , 1),
+('2002-05-12',    10     ,        2       ,       9      , 1),
 ('2001-12-16',    4      ,        1       ,       10     , 1);
 
 
@@ -79,7 +79,7 @@ SELECT `Name`, COUNT(Sales.Id) AS `nombre de vente` FROM Vegetables JOIN Sales  
 *	Procédure stockés
 */
 
-/* Tous les légumes dont le temps de conservation est strictement inférieur à 7 jours doivent être conservés au frais  */
+/* «Tous les légumes dont le temps de conservation est strictement inférieur à 7 jours doivent être conservés au frais » */
 DELIMITER $$
 
 CREATE PROCEDURE set_fresh()
@@ -98,3 +98,21 @@ DELIMITER ;
 /*
 CALL `set_fresh`();
 */
+
+
+
+/* « Appliquer une réduction de 20% sur le prix unitaire de toutes les ventes dont le poids excède 10kgs. »  */
+DELIMITER $$
+
+CREATE PROCEDURE set_reduction()
+
+BEGIN
+
+	START TRANSACTION;
+	SELECT * FROM Sales;
+   UPDATE Sales SET SaleUnitPrice = SaleUnitPrice - (SaleUnitPrice*0.2) WHERE Sales.SaleWeight > 10;
+	COMMIT;
+
+
+END $$
+DELIMITER ; 
