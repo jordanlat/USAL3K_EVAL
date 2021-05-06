@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS usal37_legumos;
 CREATE DATABASE IF NOT EXISTS usal37_legumos;
 USE usal37_legumos;
 
+
+/* Création des tables */
 CREATE TABLE Vegetables 
 (
    `Id` INT PRIMARY KEY AUTO_INCREMENT,
@@ -24,6 +26,7 @@ CREATE TABLE Sales
 ) Engine=INNODB;
 
 
+/* Insertion de lot de données */
 INSERT INTO Vegetables 
 (`Name`, `Variety`, `PrimaryColor`, `LifeTime`, `Fresh`) 
 VALUES 
@@ -52,13 +55,20 @@ VALUES
 INSERT INTO Sales 
 (`SaleDate`, `SaleWeight`, `SaleUnitPrice`, `SaleActive`, `Id`) 
 VALUES 
-('2021-05-06', 5, 1.2   ,1,20),
-('2021-05-06', 8, 2     ,2,18),
-('2021-05-06', 2, 1     ,3,16),
-('2021-05-06', 1, 2.5   ,4,14),
-('2021-05-06', 2, 1     ,5,12),
-('2021-05-06', 7, 2     ,6,10),
-('2021-05-06', 8, 0.5   ,7,8),
-('2021-05-06', 8, 1     ,8,6),
-('2021-05-06', 9, 2     ,9,4),
-('2021-05-06', 4, 1     ,10,1);
+('2019-01-14', 5, 1.2   ,1,20),
+('2023-02-25', 8, 2     ,2,14),
+('2021-03-26', 2, 1     ,3,16),
+('2014-05-31', 1, 2.5   ,4,14),
+('2015-06-02', 2, 1     ,5,12),
+('2021-09-03', 7, 2     ,6,10),
+('2016-05-14', 8, 0.5   ,7,1),
+('2018-07-15', 8, 1     ,8,1),
+('2002-05-12', 9, 2     ,9,1),
+('2001-12-16', 4, 1     ,10,1);
+
+
+/* Afficher toutes les ventes avec le nom du légume associé à la vente */
+SELECT `Name`,`SaleDate`, `SaleWeight`, `SaleUnitPrice`, `SaleActive`  FROM Vegetables JOIN Sales  ON Vegetables.Id = Sales.Id;
+
+/* Afficher le nombre de ventes par légume */
+SELECT `Name`, COUNT(*) AS `nombre de vente` FROM Vegetables JOIN Sales  ON Vegetables.Id = Sales.Id GROUP BY Sales.Id ORDER BY `nombre de vente` DESC;
