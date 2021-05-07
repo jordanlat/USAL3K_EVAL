@@ -1,0 +1,12 @@
+- À quoi sert l’autoloading?
+	L'autoloading facilite les imports de ressources en utilisant un système de "namespace". 
+
+- Pourquoi utiliser l’autoloading?
+	Pour le coter pratique et par convention.
+
+- Quelles sont les conventions à respecter pour permettre le fonctionnement de l’autoloading?
+	* Chaque "namespace"  est unique.
+	* Il faut respecter les chemins des "names
+
+- Nommez la convention PHP associée à l’autoloading.
+	PSR-0
