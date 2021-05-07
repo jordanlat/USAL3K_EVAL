@@ -24,7 +24,11 @@ CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
   PRIMARY KEY (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Les données exportées n'étaient pas sélectionnées.
+-- Listage des données de la table leg_store.doctrine_migration_versions : ~1 rows (environ)
+/*!40000 ALTER TABLE `doctrine_migration_versions` DISABLE KEYS */;
+INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
+	('DoctrineMigrations\\Version20210507085636', '2021-05-07 08:56:42', 324);
+/*!40000 ALTER TABLE `doctrine_migration_versions` ENABLE KEYS */;
 
 -- Listage de la structure de la table leg_store. sales
 CREATE TABLE IF NOT EXISTS `sales` (
@@ -39,7 +43,9 @@ CREATE TABLE IF NOT EXISTS `sales` (
   CONSTRAINT `FK_6B81704478C2BC47` FOREIGN KEY (`variety_id`) REFERENCES `varieties` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Les données exportées n'étaient pas sélectionnées.
+-- Listage des données de la table leg_store.sales : ~0 rows (environ)
+/*!40000 ALTER TABLE `sales` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sales` ENABLE KEYS */;
 
 -- Listage de la structure de la table leg_store. varieties
 CREATE TABLE IF NOT EXISTS `varieties` (
@@ -54,7 +60,16 @@ CREATE TABLE IF NOT EXISTS `varieties` (
   CONSTRAINT `FK_EF211793D33F4D6` FOREIGN KEY (`vegetable_id`) REFERENCES `vegetables` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Les données exportées n'étaient pas sélectionnées.
+-- Listage des données de la table leg_store.varieties : ~6 rows (environ)
+/*!40000 ALTER TABLE `varieties` DISABLE KEYS */;
+INSERT INTO `varieties` (`id`, `vegetable_id`, `variety`, `color1`, `color2`, `color3`) VALUES
+	(2, NULL, 'fruit', 'rouge', 'jaune', 'vert'),
+	(3, NULL, 'racine', 'vert', 'jaune', 'orange'),
+	(4, NULL, 'racine', 'vert', 'jaune', 'orange'),
+	(5, NULL, 'racine', 'vert', 'jaune', 'orange'),
+	(6, NULL, 'racine', 'vert', 'jaune', 'orange'),
+	(7, NULL, 'racine', 'vert', 'jaune', 'orange');
+/*!40000 ALTER TABLE `varieties` ENABLE KEYS */;
 
 -- Listage de la structure de la table leg_store. vegetables
 CREATE TABLE IF NOT EXISTS `vegetables` (
@@ -65,7 +80,12 @@ CREATE TABLE IF NOT EXISTS `vegetables` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Les données exportées n'étaient pas sélectionnées.
+-- Listage des données de la table leg_store.vegetables : ~2 rows (environ)
+/*!40000 ALTER TABLE `vegetables` DISABLE KEYS */;
+INSERT INTO `vegetables` (`id`, `name`, `lifetime`, `fresh`) VALUES
+	(1, 'patate', 2, 0),
+	(3, 'fraise', 3, 0);
+/*!40000 ALTER TABLE `vegetables` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
